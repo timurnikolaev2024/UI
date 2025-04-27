@@ -9,18 +9,18 @@ namespace InventoryUI
     {
         private readonly IInventoryView _view;
         private readonly InventoryData _inventoryData;
-        private readonly ItemPresenter.Factory _factory;
+        private readonly ItemPresenter.Factory _itemPresenterFactory;
         private readonly Dictionary<Item, (ItemPresenter p, ItemView v)> _map = new();
 
         public InventoryPresenter(
             IInventoryView view,
             InventoryData inventoryData,
-            ItemPresenter.Factory presenterFactory
+            ItemPresenter.Factory itemPresenterFactory
         )
         {
             _view = view;
             _inventoryData = inventoryData;
-            _factory = presenterFactory;
+            _itemPresenterFactory = itemPresenterFactory;
         }
 
         void IInitializable.Initialize()
@@ -49,7 +49,7 @@ namespace InventoryUI
             if (_map.ContainsKey(item)) return;
 
             var view = _view.CreateItem();
-            var presenter = _factory.Create(item, view);
+            var presenter = _itemPresenterFactory.Create(item, view);
             presenter.Initialize();
 
             _map[item] = (presenter, view);

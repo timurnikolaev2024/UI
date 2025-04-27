@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,9 +13,9 @@ namespace InventoryUI
         [SerializeField] private Button _debugLogButton;
         [SerializeField] private TMP_InputField _idInput;
 
-        public event UnityAction<string> OnAddClicked;
-        public event UnityAction<string> OnRemoveClicked;
-        public event UnityAction OnLogClicked;
+        public event Action<string> OnAddClicked;
+        public event Action<string> OnRemoveClicked;
+        public event Action OnLogClicked;
 
         void Awake()
         {
@@ -26,8 +27,8 @@ namespace InventoryUI
 
     public interface IInventoryDebugPanelView
     {
-        event UnityAction<string> OnAddClicked;
-        event UnityAction<string> OnRemoveClicked;
-        event UnityAction OnLogClicked;
+        event Action<string> OnAddClicked;
+        event Action<string> OnRemoveClicked;
+        event Action OnLogClicked;
     }
 }

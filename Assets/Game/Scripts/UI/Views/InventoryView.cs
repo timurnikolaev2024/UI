@@ -9,8 +9,7 @@ namespace InventoryUI
         [SerializeField] private Transform _content;
         [SerializeField] private ItemView _itemPrefab;
         
-        [Inject]
-        private ItemView.Pool _itemPool;
+        [Inject] private ItemView.Pool _itemPool;
 
         public ItemView CreateItem()
         {

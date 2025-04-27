@@ -18,7 +18,7 @@ namespace InventoryUI
 
         public void Initialize()
         {
-            this.OnShow();
+            OnShow();
         }
 
         public void Dispose()
@@ -37,7 +37,8 @@ namespace InventoryUI
 
         private void OnInventoryChanged(InventoryData.Entry obj)
         {
-            if (obj.item == _item) _view.SetCount(obj.count);
+            if (obj.item == _item) 
+                _view.SetCount(obj.count);
         }
 
         private void OnHide()

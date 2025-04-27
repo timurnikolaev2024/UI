@@ -7,6 +7,7 @@ namespace InventoryUI
     {
         [SerializeField] private InventoryData _inventory;
         [SerializeField] private ItemDatabase _itemDatabase;
+        
         public override void InstallBindings()
         {
             Container.Bind<InventoryData>()
